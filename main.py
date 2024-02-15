@@ -12,7 +12,7 @@ class Player:
     _name = ""
     _pokemon = []
     _items = {}
-
+    _currentPokemon = 0
     def setName(self, name):
         self._name = name
 
@@ -25,6 +25,9 @@ class Player:
 
     def getPokemon(self):
         return self._pokemon
+
+    def getCurrentPokemon(self):
+        return self._pokemon[self._currentPokemon]
 
 class Pokemon:
 
@@ -63,10 +66,23 @@ class Pokemon:
     def getAbility(self):
         return self._stats["abilities"]
 
+    def getHealth(self):
+        return self._stats["hp"]
+
 
 class Game():
     _textSpeed = 0.5
-
+    _tutorial = True
+    _map = ['G','G','T','C','G','S','T','G','G','C','B']
+    _mapDict = {
+        "G" : "wild pokemon",
+        "T" : "Trainer",
+        "C" : "Pokemon Center",
+        "S" : "Poke Mart",
+        "B" : "Gym Battle"
+    }
+    _step = 0
+    _player = Player()
     def runGame(self):
         quit = False
         while not quit:
@@ -90,7 +106,6 @@ class Game():
                     print("error, returning to main menu")
 
     def newGame(self):
-        newPlayer = Player()
         #intro:
         print("Welcome to the world of Pokemon, My name is professor Oak but everyone calls me the Pokemon Professor.")
         time.sleep(self._textSpeed)
@@ -109,7 +124,7 @@ class Game():
         print("But should all of you pokemon faint even once, you will be dropped out of the tournament.")
         time.sleep(self._textSpeed)
         name = input("Now why dont you tell me what your name is?")
-        newPlayer.setName(name)
+        self._player.setName(name)
         print(name + "... what a fantastic name.")
         time.sleep(self._textSpeed)
         print(name + " I wish you the best of luck out there.")
@@ -128,7 +143,7 @@ class Game():
                 pokemonChoice = input("Choice:")
                 if pokemonChoice.isnumeric():
                     pokeNum = int(pokemonChoice) + (3 * (int(pokemonChoice) - 1))
-                    newPlayer.addPokemon(pokeNum)
+                    self._player.addPokemon(pokeNum)
 
             elif userInput == "2":
                 print("1.[Chikorita, the grass type pokemon]")
@@ -137,14 +152,59 @@ class Game():
                 pokemonChoice = input("Choice:")
                 if pokemonChoice.isnumeric():
                     pokeNum = int(pokemonChoice) + (3 * (int(pokemonChoice) - 1) + 151)
-                    newPlayer.addPokemon(pokeNum)
+                    self._player.addPokemon(pokeNum)
             else:
                 print("not a valid input")
-        pokemon = newPlayer.getPokemon()
-        print(newPlayer.getName() + " " + pokemon[0].getName() + " " + pokemon[0].getAbility())
+        pokemon = self._player.getPokemon()
+        print(self._player.getName() + " " + pokemon[0].getName() + " " + pokemon[0].getAbility())
         print(pokemon[0].getStats())
+        self.mapArea()
 
-    def
+    def mapArea(self):
+        print("Your first match up is a " + self._mapDict[self._map[self._step]])
+        self.battle()
+
+    def battle(self):
+        battle = self._map[self._step]
+        if battle == "G":
+            if self._tutorial:
+                print("Welcome to your first battle.")
+                time.sleep(self._textSpeed)
+                print("When you are in a battle you will have four options, fight, bag, run or pokemon.")
+                time.sleep(self._textSpeed)
+                print("To fight you click fight and it will give you up to four options of moves.")
+                time.sleep(self._textSpeed)
+                print("Next to each move will be its Name, its type, and its PP or Power Points, which is how many times you can use it.")
+                time.sleep(self._textSpeed)
+                print("In your bag you will have access to items that you either bought in stores or picked up on the road.")
+                time.sleep(self._textSpeed)
+                print("Run allows you to escape from only a wild Pokemon battle but is unadvised.")
+                time.sleep(self._textSpeed)
+                print("Pokemon will gain valuable experience and money from wining a pokemon battle.")
+                time.sleep(self._textSpeed)
+                print("Lastly pokemon will give you the option of taking a turn to change your pokemon.")
+                time.sleep(self._textSpeed)
+                print("To start your first battle i will provide you with some pokeballs. Pokeballs will avalible in the items section.")
+                time.sleep(self._textSpeed)
+            opponent = Pokemon(17)
+            print("***************************************************************************************************")
+            print(opponent.getName())
+            print("Health:" + opponent.getHealth())
+            print("")
+            print("")
+            print("")
+            print(self._player.getCurrentPokemon().getName())
+            print("Health:" + self._player.getCurrentPokemon().getHealth())
+            print("***************************************************************************************************")
+            print("1.[Fight]")
+            print("2.[Bag]")
+            print("3.[run]")
+            print("4.[Pokemon]")
+            choice = input("Choice:")
+        if battle == "T":
+            print("Welcome to your first trainer battle.")
+            print("When you are in a battle you will be able ")
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':

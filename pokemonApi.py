@@ -19,6 +19,7 @@ if __name__ == '__main__':
         dict["power"] = data["power"]
         dict["pp"] = data["pp"]
         dict["priority"] = data["priority"]
+        dict["accuracy"] = data["accuracy"]
         dict['stat_changes'] = data["stat_changes"]
         dict["type"] = data["type"]["name"]
         dict["target"] = data["target"]["name"]

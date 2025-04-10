@@ -1,0 +1,52 @@
+1.Clearly show/explain each feature of your individual project
+and how it works
+
+2.Clearly show the feature that uses the microservice your
+partner provided
+
+Heuristic #1:Game includes a tutorial which walks the user
+through the game and how combat works.
+
+Heuristic #2:Combat tutorial include pros and cons to
+certain actions like attacking or going into your bag,
+using a pokeball etc.
+
+Heuristic #3:Both the intro tutorial and
+combat tutorial can be skipped after they have been
+done for the first time.
+
+Heuristic #4:Combat choices match those from previous
+pokemon games, as well as input is clear and consistent
+
+Heuristic #5:all options contain the ability to back out,
+like in attack menu, or the option to quit at anytime by entering
+0
+
+Heuristic #6:all input choices are consistent,
+by having a number input and a format of 1.[input text]
+
+Heuristic #7:In the battle section there are multiple options
+for what the user wishes to do in battle.
+
+Heuristic #8:users have a quit button by entering 0 at any
+input or having a back button in certain areas.
+
+step 4: the quality attribute I choose is simplicity the game
+is super simple to get into, all input is available
+on screen at all times and is easy to understand how your choice
+will impact the game.
+
+step 5: slowly show all work
+obsolete comment
+comments out code
+redundant comment
+long comment
+function with many jobs
+function with many parameters
+duplicate code
+long lines
+inconsistent conventions
+vague naming
+
+
+
